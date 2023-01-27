@@ -1,0 +1,16 @@
+#grass {
+    width: 200px;
+    height: 150px;
+    animation: do 2s linear infinite;
+}
+
+@keyframes do {
+    0%{
+        transform:translateY(0px) rotateY(0);
+    }
+    100%{
+        transform: translateY(80vh) rotateY(360deg);
+        
+    }
+    
+}

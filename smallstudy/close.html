@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <a href="http://baidu.com" class="a">baidu</a>
+    <script>
+        let a=document.querySelector("a");
+        a.onclick=function(e){
+            console.log("prevent default 1");
+            e.preventDefault();
+            //或者  return false
+            console.log("prevent default 2");
+
+        }
+    </script>
+
+    <button class="open">打开</button>
+    <div class="box">
+        <button class="close">关闭</button>
+    </div>
+    <script>
+        let opens=document.querySelector(".open");
+        let close=document.querySelector(".close");
+        let box=document.querySelector(".box");
+        opens.addEventListener("click",function(){
+            box.style.display="block";
+        })
+        close.onclick=function(e){
+            box.style.display="none";
+            e.stopPropagation();
+        }
+        box.onclick=function(){
+            box.style.backgroundColor="red"
+        }
+        </script>
+</body>
+</html>

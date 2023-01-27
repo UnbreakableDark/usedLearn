@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大</title>
+    <style>
+        .picture img{
+            width: 100px;
+            height: 100px;
+        }
+
+
+        .big{
+            position:absolute;
+            /*不能使用relative因为relative是相对于正常文档流的  图片会靠下 而不会紧跟着鼠标*/
+        }
+        .big img{
+
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="picture">
+        <img src="../source/image/贞德.png" alt="">
+        <img src="../source/image/阿塔兰忒.png" alt="">
+        <img src="../source/image/安娜满破图.png" alt="">
+    </div>
+    <div class="big"></div>
+    <script>
+        let div=document.querySelector(".big")
+        let list=document.querySelectorAll(".picture img");
+        let plist=document.querySelector(".picture")
+        for(let i of list){
+            i.onmouseover=function(){
+               div.innerHTML=`<img src="${i.src}" alt="">`
+            }
+            i.onmouseleave=function(){
+                div.innerHTML='';
+            }
+        }
+
+        plist.onmousemove=function(e){
+            let x=e.clientX;
+            let y=e.clientY;
+            //console.log(`X:${x} Y:${y}`);
+            div.style.top=y+10+"px";
+            div.style.left=x+10+"px";//多加10px以防止 因为鼠标不断移出下面图片而闪烁
+        }
+        
+    </script>
+</body>
+</html>

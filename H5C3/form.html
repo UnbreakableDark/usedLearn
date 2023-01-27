@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form表单</title>
+</head>
+<body>
+    <article>
+        <header>HTML5表单  form</header>
+        <section>
+            <p>在网页中，表单主要用于填写信息，并将获得的信息传递给后台服务器端
+                使网页具有交互元素的功能。
+            </p>
+            <p>
+                表单的常用属性：
+                1.action  指定表单提交时向何处发生表单数据，即需要发送的服务器地址
+                2.method  用于指定表单向服务器提交数据的方法，包括 get/post
+                3.enctype  指定表单发送的编码方式，只有method=post时才有效。共三种属性值。
+                (1)application/x-www-form-urlencoded:此为默认值，如果enctype属性不写，则采用此方法
+                (2)multipart/form-data  不对字符编码，用于上传文件时使用
+                (3)text/plain 将空格转换为 +号 但不编码特殊字符，通常将表单发送到电子邮箱时使用
+            </p>
+            <p>
+                input常用属性：
+                1.type 输入框的类型  默认text
+                2.name 输入框的名称 一般必填。因为传递数据时 使用name=value的形式传递
+                3.value input输入框的默认值
+                4.placeholder  表示输入框的提示信息当有value时，提示内容会消失，转而显示value的值。
+                5.tabindex  控制按tab键时的跳转顺序，从最小数组开始，往大的跳，依次获得焦点。
+                
+                除以上属性外，input还有一些属性名等于属性值的特殊属性
+                6.checked="checked"默认选中
+                7.disabled="disabled" 控制控件不能使用，如果输入框为disabled，则不能往后台传信息。
+                8.hidden="hidden" 设置隐藏控件
+            </p>
+            <p>
+                input type的种类：
+                1.text  单行文本
+                2.password 密码输入框
+                3.radio  单选按钮
+                name和value属性需同时存在，提交时，提交的是value中的属性值。
+                radio凭借name属性区分是否为同一组。name相同，为同组，同组中只能选择一个。
+                4.checkbox 复选按钮
+                5.file 上传文件域
+                6.submit 提交按钮
+                7.reset  重置
+                8.image 图型提交按钮 需要 src属性来设置图片路径
+                9.button 可单击按钮             
+            </p>
+        </section>
+    </article>
+    <div>
+        <form action="access.ts" method="post">
+            <input type="text" name="text1" value="输入框的默认值">
+        </form>
+    </div>
+</body>
+</html>
